@@ -1,0 +1,99 @@
+
+*{
+  box-sizing:border-box
+}
+
+.page{
+  background:var(--bg);
+  background-image: url('../../assets/Login-background.png');
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--ink);
+}
+
+.logincard{
+  width:100%;
+  max-width:440px;
+  border:none;
+  border-radius:6px;
+  background:var(--card);
+}
+.brandmark{
+  width:34px;
+  height:34px;
+  background:#111;
+  border-radius:6px;
+}
+.brandname{
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-weight:700;font-size:1.5rem;
+}
+.welcome{
+  font-family:'Libre Baskerville',Georgia,serif;
+  font-weight:700;font-size:1.25rem;
+}
+.subtitle{
+  color:#374151;
+  font-size:.9rem
+}
+
+.fieldlabel{
+  font-size:.72rem;
+  letter-spacing:.12em;
+  font-weight:600;
+  color:#374151;
+}
+.fieldinput{
+  background:var(--field);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:.7rem .85rem;
+  font-size:.92rem;
+}
+.fieldinput:focus{
+  background:var(--field);
+  border-color:#9ca3af;
+  box-shadow:none;
+}
+.forgotlink{
+  color:var(--link);
+  text-decoration:none;
+  font-size:.82rem;
+}
+.forgotlink:hover{
+  text-decoration:underline
+}
+.togglepass{
+  position:absolute;
+  right:.4rem;
+  top:50%;
+  transform:translateY(-50%);
+  background:transparent;
+  border:none;
+  color:#4b5563;
+  padding:.25rem .5rem;
+}
+.form-check-input{border-radius:2px;border-color:#9ca3af}
+.form-check-input:checked{background-color:#111;border-color:#111}
+.keep-label{font-size:.9rem;color:#374151}
+.btnsignin{
+  background:#0a0a0a;
+  color:#fff;
+  border:none;
+  border-radius:4px;
+  padding:.85rem 1rem;
+  font-weight:600;
+  letter-spacing:.01em;
+}
+.btnsignin:hover{
+  background:#1f1f1f;
+  color:#fff
+}
+.divider{
+  border-color:#e5e7eb;
+  opacity:1
+}
+.assist{color:#374151}
+.meta{font-size:.7rem;letter-spacing:.12em;color:#6b7280}
+.footer{
+  color:#ffffff;opacity:.85;font-size:.72rem;letter-spacing:.14em;
+}
