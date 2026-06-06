@@ -24,25 +24,28 @@ export default function Login() {
 
     try {
       setIsSubmitting(true)
-      const response = await api.post("users/login", {
-        Email: Email.trim(),
-        PasswordHash: password,
+      const response = await api.post("dashboard/login", {
+        email: Email.trim(),
+        password: password,
       })
 
-      if (response.data) {
-        Login(response.data.user)
-        localStorage.setItem("token", response.data.token)
-        console.log(response.data.token);
-        
-        if (response.data.user.Role === "donor") {
-          navigate('/Dashboard')
-        }
-      }
-    } catch (error) {
-      setError(error.response?.data?.msg || 'Login failed. Please try again.')
-    } finally {
-      setIsSubmitting(false)
+    console.log("SUCCESS:", response.data)
+
+    localStorage.setItem("token", response.data.token)
+
+    Login(response.data.user || null)
+
+    if (response.data.user?.Role === "donor") {
+      navigate('/Dashboard')
     }
+
+  } catch (error) {
+    console.log("ERROR:", error)
+
+    setError(error.response?.data?.msg || 'Login failed. Please try again.')
+  } finally {
+    setIsSubmitting(false)
+  }
   }
 
   return (
@@ -69,6 +72,8 @@ export default function Login() {
 
             <form onSubmit={handleSubmit}>
 
+              {error && <p className="text-danger mt-2 mb-0">{error}</p>}
+
               <div className="mb-3">
                 <label htmlFor="email" className={`form-label ${Style.fieldlabel}`}>WORK EMAIL</label>
                 <input type="email" id="email" className={`form-control  ${Style.fieldinput}`} placeholder="name@company.com" autoComplete="email" value={Email} onChange={(e) => setEmail(e.target.value)}/>
@@ -88,8 +93,6 @@ export default function Login() {
                   </button>
                 </div>
               </div>
-
-              {error && <p className="text-danger mt-2 mb-0">{error}</p>}
 
               <div className="form-check mb-4">
                 <input className="form-check-input" type="checkbox" id="keep"/>
