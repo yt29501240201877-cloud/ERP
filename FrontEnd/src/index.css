@@ -1,11 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined");
 
 :root{
   --bg:#c9ccd1;
+  --surface:#f8f9ff;
+  --outline:#c6c6cd;
   --card:#ffffff;
   --ink:#111111;
   --muted:#6b7280;
   --field:#f5f6fb;
   --border:#e5e7eb;
   --link:#2563eb;
+  --primary:#000000; 
+  --on-primary:#ffffff;
+  --on-surface-variant:#45464d;
+  --on-secondary-container:#57657b;
+  --secondary-container:#d5e3fd;
+  --surface-container:#e5eeff;
+  --background:#f8f9ff;
+  --surface-dim:#cbdbf5;
+  --surface-container-low:#eff4ff;
+  --error:#ba1a1a;
+  --outline-variant:#c6c6cd;
+  --on-tertiary-container:#3d89c3;
+  --tertiary-fixed:#cde5ff
 }

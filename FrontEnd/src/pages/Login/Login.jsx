@@ -35,7 +35,7 @@ export default function Login() {
 
     Login(response.data.user || null)
 
-    if (response.data.user?.Role === "donor") {
+    if (response.data.user?.role === "Admin") {
       navigate('/Dashboard')
     }
 

@@ -1,15 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Login from "../src/pages/Login/Login"
+import Dashboard from "../src/pages/Dashboard/Dashboard"
+import Users from "../src/pages/Dashboard/users"
 import './App.css'
 
 const router = createBrowserRouter([
-  { path: '/', element: <Login/>,
-    // children: [
-    //   { path: '/dashboard',   element: <div>Dashboard</div> },
-    //   { path: '/impact',      element: <ImpactHub /> },
-    //   { path: '/eligibility', element: <EligibilityAdmin /> },
-    //   { path: '/screening',   element: <MedicalScreening /> },
-    // ]
+  { path: '/', element: <Login/> },
+  { path: 'Dashboard',   element: <Dashboard/> ,
+      children: [
+        {path: 'users', element: <Users/>},
+      ]
   },
 ])
 
