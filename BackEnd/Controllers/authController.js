@@ -1,5 +1,5 @@
 const Users = require("../Models/Users")
-const loginSchema = require("./Validation/userValidation")
+const {loginSchema, registerSchema} = require("./Validation/userValidation")
 const jwt = require('jsonwebtoken');
 
 const login = async (req , res) =>{
@@ -21,11 +21,35 @@ const login = async (req , res) =>{
 
         const token = jwt.sign({id:user._id}, process.env.Secret_Key, {expiresIn: "1d", algorithm: "HS256"})
 
-        res.status(200).json({msg: "Success Login", token})
+        res.status(200).json({msg: "Success Login", token, user})
 
     } catch (error) {
         res.status(500).json({msg: "Server Error", error: error.message});
     }
 }
 
-module.exports = login;
+const register = async (req, res) => {
+    try {
+
+        const {error, value} = registerSchema.validate(req.body, {abortEarly: false, stripUnknown: true})
+
+        const {email, password, first_name, last_name, role, image} = value
+
+        if(error) return res.status(400).json({msg: error.details.map(err => err.message)})
+
+        const existuser = await Users.findOne({email})
+
+        if(existuser) return res.status(400).json({msg: "User Already Exist"})
+
+        const user = await Users.create({email, password, first_name, last_name, role, image: req.file.path})
+
+        if (!req.file) return res.status(400).json({msg: "Image is required"});
+
+        res.status(201).json({msg: "User Created Successfully", data: user})
+
+    } catch (error) {
+        res.status(500).json({msg: "Server Error", error: error.message});
+    }
+}
+
+module.exports = {login, register};

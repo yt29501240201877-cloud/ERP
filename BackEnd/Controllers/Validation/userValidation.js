@@ -1,14 +1,17 @@
 const Joi = require("joi");
 
-
-
-const userSchema = Joi.object({
+const loginSchema = Joi.object({
     email: Joi.string().trim().required().email(),
     password: Joi.string().min(8).required(),
-    // first_name: Joi.string().trim().required(),
-    // last_name: Joi.string().trim().required(),
-    // is_active: Joi.boolean(),
-    // mfa_secret: Joi.string()
 });
 
-module.exports = userSchema;
+const registerSchema = Joi.object({
+    email: Joi.string().email().required().trim(),
+    password: Joi.string().trim().required().min(6),
+    first_name: Joi.string().required(),
+    last_name: Joi.string().required(),
+    role: Joi.string().valid("Admin","Accountant","Procurment Manager", "Sales Manger", "Financial Manger"),
+    is_active: Joi.string().valid("Active", "Inactive", "Suspended"),
+})
+
+module.exports = {loginSchema, registerSchema};
