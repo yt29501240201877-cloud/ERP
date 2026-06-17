@@ -1,5 +1,6 @@
 // import { Outlet } from "react-router-dom"
 import Style from "./users.module.css"
+import { NavLink } from 'react-router-dom'
 
 export default function UserManagement() {
   return (
@@ -9,7 +10,9 @@ export default function UserManagement() {
           <h2>User Management</h2>
           <p>Manage organization access, roles, and security permissions.</p>
         </div>
-        <button className={Style.btnprimaryapp}><span className={`${Style.materialsymbolsoutlined} material-symbols-outlined`} style={{fontSize:"20px"}}>add</span>Add New User</button>
+        <NavLink to="/Dashboard/New_user">
+          <button className={Style.btnprimaryapp}><span className={`${Style.materialsymbolsoutlined} material-symbols-outlined`} style={{fontSize:"20px"}}>add</span>Add New User</button>
+        </NavLink>
       </div>
       <div className={Style.stats}>
         <div className={Style.stat}><div><p className="lbl label-caps text-muted-c" style={{color:"var(--on-surface-variant)"}}>Total Users</p><p className={Style.val}>1,284</p></div><span className={`${Style.materialsymbolsoutlined} material-symbols-outlined ${Style.textprimarycontainerc}`}>groups</span></div>
