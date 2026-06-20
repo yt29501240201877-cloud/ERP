@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const { string, required } = require("joi");
 
 const userSchema = new mongoose.Schema({
     email:{

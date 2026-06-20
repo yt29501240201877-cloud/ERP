@@ -17,12 +17,12 @@ export default function Sidebar() {
                     <span>Dashboard</span>
                 </NavLink>
 
-                <NavLink to="/accounting" className={Style.navitem}>
+                {/* <NavLink to="/accounting" className={Style.navitem}>
                     <span className={`${Style.materialsymbolsoutlined} material-symbols-outlined`}>
                         account_balance_wallet
                     </span>
                     <span>Accounting</span>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink to="/reports" className={Style.navitem}>
                     <span className={`${Style.materialsymbolsoutlined} material-symbols-outlined`}>

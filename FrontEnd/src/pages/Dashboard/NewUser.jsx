@@ -5,22 +5,9 @@ import api from "../../components/api";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const S = {
-
-
-
-
-
-
-
   inputErr: { border: "1px solid #ef4444" },
   errMsg: { fontSize: 12, color: "#ef4444", marginTop: 4 },
 
-
-
-
-
-
-  // toast
   toast: (visible) => ({
     position: "fixed", bottom: 28, right: 28,
     background: "#111827", color: "#fff",
@@ -34,21 +21,17 @@ const S = {
   }),
 };
 
-// ─── component ───────────────────────────────────────────────────────────────
-
 export default function NewUser() {
-  // ── form state ──
   const [form, setForm] = useState({
     firstName:  "",
     lastName:   "",
     email:      "",
     password:   "",
     role:       "",
-    avatar:     null,   // base‑64 preview URL
+    avatar:     null,  
     avatarFile: null,
   });
 
-  // ── UI state ──
   const [errors,      setErrors]      = useState({});
   const [showPwd,     setShowPwd]     = useState(false);
   const [toast,       setToast]       = useState({ visible: false, msg: "" });
@@ -60,14 +43,12 @@ export default function NewUser() {
     setTimeout(() => setToast({ visible: false, msg: "" }), 3000);
   }
 
-  // ── field change ──
   function handleChange(e) {
     const { name, value } = e.target;
     setForm(f => ({ ...f, [name]: value }));
     if (errors[name]) setErrors(err => ({ ...err, [name]: "" }));
   }
 
-  // ── avatar upload ──
   function handleAvatarChange(e) {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -129,9 +110,7 @@ export default function NewUser() {
   }
 
   try {
-    const response = await api.post("dashboard/register", formData);
-
-    console.log(response.data);
+    await api.post("dashboard/register", formData);
     
     showToast("✓ User created successfully!");
     handleCancel();
@@ -146,8 +125,6 @@ export default function NewUser() {
     }
   }
 };
-
-  // ─────────────────────────────────────────────────────────────────────────
 
   return (
     <div className={Style.workspace}>
