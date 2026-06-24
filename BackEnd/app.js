@@ -20,10 +20,12 @@ connect();
 const adminRoutes = require("./Routes/usersRoutes");
 const glRoutes = require("./Routes/glRoutes");
 const accperRoutes = require("./Routes/accperRoutes");
+const jour_lRoutes = require("./Routes/Journal_lRoutes")
 
 app.use('/api/dashboard', adminRoutes)
 app.use('/api/gl', glRoutes);
 app.use('/api/accper', accperRoutes);
+app.use('/api/jour_l', jour_lRoutes);
 
 const port = process.env.PORT || 3000;
     
