@@ -8,6 +8,10 @@ app.use(cors({
   origin: "http://localhost:5173"
 }));
 
+const path = require("path");
+
+app.use("/Uploads", express.static(path.join(__dirname, "Uploads")));
+
 app.use(express.json());
 
 app.get('/test',(req,res)=>{

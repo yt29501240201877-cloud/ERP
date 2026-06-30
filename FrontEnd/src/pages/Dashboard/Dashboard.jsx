@@ -11,7 +11,7 @@ export default function Dashboard() {
         <Sidebar/>
           <div className={Style.main}>
             <Topbar/>
-            <Outlet/>
+            <Outlet/>        
           </div>
       </div> 
     </div>

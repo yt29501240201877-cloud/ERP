@@ -19,6 +19,8 @@ const login = async (req , res) =>{
 
         if(!matchedPassword) return res.status(400).json({msg: "Invalid Email or Password"})
 
+        await Users.findOneAndUpdate({email},{is_active: "Active"})
+
         const token = jwt.sign({id:user._id, role: user.role}, process.env.Secret_Key, {expiresIn: "1d", algorithm: "HS256"})
 
         res.status(200).json({msg: "Success Login", token, user})
@@ -52,4 +54,25 @@ const register = async (req, res) => {
     }
 }
 
-module.exports = {login, register};
+const logout = async (req, res) => {
+    try {
+        const {token} = req.body;
+        
+        const decoded = jwt.verify(token, process.env.Secret_Key);
+
+        if (!token) return res.status(400).json({msg: "Token is required"});
+        
+        const user = await Users.findById(decoded.id);
+
+        if (!user) return res.status(204).json({msg: "User Already Logged out"});
+
+        await Users.findByIdAndUpdate(decoded.id ,{is_active: "Inactive", last_login: new Date()}) 
+
+        res.json({msg: "Logged out Successfully"});
+
+    } catch (error) {
+        res.status(500).json({msg: "Server Error", error: error.message});
+    }
+}
+
+module.exports = {login, register, logout};

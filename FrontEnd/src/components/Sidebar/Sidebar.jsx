@@ -49,7 +49,7 @@ export default function Sidebar() {
                 <div className={Style.avatarimg} ></div>
 
                 <div className= "flex-grow-1" style={{ minWidth: 0 }}>
-                    <p className={`${Style.truncate} mb-0`} style={{ fontWeight:"700", fontSize:"13px"}}>David Miller</p>
+                    <p className={`${Style.truncate} mb-0`} style={{ fontWeight:"700", fontSize:"13px"}}>Youssef</p>
                     <p className={`${Style.truncate} mb-0`} style={{ fontSize: "11px", color: "var(--on-surface-variant)"}}>Super Admin</p>
                 </div>
                 <span className={`${Style.materialsymbolsoutlined} material-symbols-outlined`}  style={{ color: "var(--on-surface)", cursor: "pointer"}}>logout</span>

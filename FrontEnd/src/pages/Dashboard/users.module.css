@@ -273,3 +273,159 @@ label.req::after{
 .sectionlabel i{
     font-size:16px
 }
+
+.filterbar{
+    background:var(--surface);
+    border:1px solid var(--outline-variant);
+    border-radius:4px;
+    padding:16px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    box-shadow:0 1px 2px rgba(0,0,0,.04)
+}
+
+.filterinput{
+    position:relative;
+    flex:1
+}
+
+.filterinput .materialsymbolsoutlined{
+    position:absolute;
+    left:12px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--on-surface-variant);
+    font-size:18px
+}
+
+.filterinput input,.filterbar select{
+    background:var(--surface-container-lowest);
+    border:1px solid var(--outline-variant);
+    border-radius:4px;
+    height:40px;
+    font-size:13px
+}
+
+.filterinput input{
+    width:100%;
+    padding:0 12px 0 40px
+}
+  
+.filterbar select{
+    padding:0 16px;
+    min-width:140px
+}
+
+.btnoutlineapp{
+    height:40px;
+    padding:0 16px;
+    border:1px solid var(--outline-variant);
+    background:var(--surface);
+    border-radius:4px;
+    font-size:13px;
+    font-weight:500;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer
+}
+
+.btnoutlineapp:hover{
+    background:var(--surface-container-low)
+}
+
+.tablecard{
+    background:var(--surface);
+    border:1px solid var(--outline-variant);
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,.04)
+}
+
+table.usertable{
+    width:100%;
+    border-collapse:collapse;
+    text-align:left
+}
+
+.usercell{
+    display:flex;
+    align-items:center;
+    gap:16px
+}
+
+.avatar{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:13px;
+    background-size:cover;
+    background-position:center
+}
+
+.usertable thead{background:var(--surface-container-low);border-bottom:1px solid var(--outline-variant)}
+.usertable th{padding:12px 16px;color:var(--on-surface-variant);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.usertable th:first-child,.user-table td:first-child{padding-left:24px;width:32px}
+.usertable th:last-child,.user-table td:last-child{padding-right:24px;}
+.usertable tbody tr{border-bottom:1px solid var(--outline-variant);transition:background .15s}
+.usertable tbody tr:last-child{border-bottom:none}
+.usertable tbody tr:hover{background:var(--surface-container-lowest)}
+.usertable td{padding:8px 16px;vertical-align:middle}
+.username{margin:0;font-weight:700;font-size:14px;color:var(--on-surface)}
+.useremail{margin:0;font-size:13px;color:var(--on-surface-variant)}
+.rowactions{display:inline-flex;justify-content:flex-end;gap:16px}
+.rowactions button{background:none;border:none;color:var(--on-surface-variant);padding:4px;cursor:pointer;transition:color .15s}
+.rowactions button:hover{color:var(--primary)}
+
+.rolebadge,
+.statusbadge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.Active {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.Inactive {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.Suspended {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.Admin {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.Accountant {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.ProcurmentManager {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.SalesManger {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.FinancialManger {
+  background: #ede9fe;
+  color: #6d28d9;
+}

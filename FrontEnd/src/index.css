@@ -24,5 +24,9 @@
   --error:#ba1a1a;
   --outline-variant:#c6c6cd;
   --on-tertiary-container:#3d89c3;
-  --tertiary-fixed:#cde5ff
+  --tertiary-fixed:#cde5ff;
+  --primary-container:#131b2e; 
+  --primary-fixed:#dae2fd; 
+  --primary-fixed-dim:#bec6e0;
+
 }

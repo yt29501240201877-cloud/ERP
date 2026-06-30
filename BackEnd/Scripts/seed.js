@@ -14,7 +14,9 @@ const addSuperAdmin = async () => {
             email: process.env.Email_Admin,
             password: "admin12345",
             first_name: "Super",
-            last_name: "Admin"
+            last_name: "Admin",
+            role: "Admin",
+            image: "1782548770852.png"   
         }
 
         const admin = await Users.create(superAdmin);
